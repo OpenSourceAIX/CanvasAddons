@@ -13,3 +13,5 @@ Currently we got:
 ## Wanna Download? See Release [here](https://github.com/OpenSourceAIX/CanvasAddons/releases)
 
 ## Don't know how to use? See [Wiki](https://github.com/OpenSourceAIX/CanvasAddons/wiki)
+
+## Report bug / Wanna suggest? Draft an [Issue](https://github.com/OpenSourceAIX/CanvasAddons/issue)
