@@ -35,11 +35,13 @@ public final class CircleImageSprite extends AbstractImageSprite {
     protected void inheritProperties(Sprite sprite) {
     	if (sprite instanceof Ball) {
             Ball ball = (Ball) sprite;
+            Enabled(ball.Enabled());
             Heading(ball.Heading());
             Interval(ball.Interval());
             Height(ball.Height());
             Width(ball.Width());
             Speed(ball.Speed());
+            Visible(ball.Visible());
             X(ball.X());
             Y(ball.Y());
             Z(ball.Z());
@@ -57,6 +59,15 @@ public final class CircleImageSprite extends AbstractImageSprite {
                 return Math.hypot(qx - centerX, qy - centerY) <= radius;
             }
         };
+    }
+
+
+    @DesignerProperty(
+        editorType = PropertyTypeConstants.PROPERTY_TYPE_ASSET,
+        defaultValue = "")
+    @SimpleProperty
+    public void Picture(String path) {
+        super.Picture(path);
     }
 
 }

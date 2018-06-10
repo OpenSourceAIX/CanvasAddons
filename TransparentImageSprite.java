@@ -49,6 +49,7 @@ public final class TransparentImageSprite extends AbstractImageSprite {
     protected void inheritProperties(Sprite sprite) {
         if (sprite instanceof ImageSprite) {
             ImageSprite imageSprite = (ImageSprite) sprite;
+            Enabled(imageSprite.Enabled());
             Heading(imageSprite.Heading());
             Interval(imageSprite.Interval());
             Height(imageSprite.Height());
@@ -56,6 +57,7 @@ public final class TransparentImageSprite extends AbstractImageSprite {
             Picture(imageSprite.Picture());
             Rotates(imageSprite.Rotates());
             Speed(imageSprite.Speed());
+            Visible(imageSprite.Visible());
             X(imageSprite.X());
             Y(imageSprite.Y());
             Z(imageSprite.Z());
