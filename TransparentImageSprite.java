@@ -41,8 +41,8 @@ public final class TransparentImageSprite extends AbstractImageSprite {
     @DesignerProperty(
         editorType = PropertyTypeConstants.PROPERTY_TYPE_COMPONENT + ":com.google.appinventor.components.runtime.ImageSprite")
     @SimpleProperty(userVisible = false)
-    public void A_PlaceHolder(Sprite placeHolder) {
-        super.A_PlaceHolder(placeHolder);
+    public void AA_PlaceHolder(Sprite placeHolder) {
+        super.AA_PlaceHolder(placeHolder);
     }
 
     @Override

@@ -28,13 +28,16 @@ public abstract class AbstractSprite<T extends Sprite> extends AndroidNonvisible
     /**
      * A place holder for the sprite.
      * 
+     * The property name "AA_PlaceHolder" is in purpose of making this property
+     * at the top of the property list, and being executed first before other properties are handled
+     * 
      * @param placeHolder
      */
     @SimpleProperty(
         category = PropertyCategory.BEHAVIOR,
         userVisible = false)
     @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_COMPONENT)
-    public void A_PlaceHolder(Sprite placeHolder) {
+    public void AA_PlaceHolder(Sprite placeHolder) {
         canvas = (Canvas)ReflectUtil.getField(Sprite.class, "canvas", placeHolder);
 
         if (sprite == null) {
