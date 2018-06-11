@@ -98,9 +98,9 @@ public abstract class AbstractImageSprite extends AbstractSprite<ImageSprite> {
         return sprite.Rotates();
     }
 
-    @DesignerProperty(
-        editorType = PropertyTypeConstants.PROPERTY_TYPE_FLOAT,
-        defaultValue = "0.0")
+    //@DesignerProperty(
+    //    editorType = PropertyTypeConstants.PROPERTY_TYPE_FLOAT,
+    //    defaultValue = "0.0")
     @SimpleProperty
     public void Speed(float speed) {
         sprite.Speed(speed);
