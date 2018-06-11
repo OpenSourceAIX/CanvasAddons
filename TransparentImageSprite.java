@@ -15,7 +15,7 @@ import android.graphics.drawable.BitmapDrawable;
 import cn.colintree.aix.CanvasAddons.util.ColorUtil;
 import cn.colintree.aix.CanvasAddons.util.ReflectUtil;
 
-@DesignerComponent(version = CanvasAddons.VERISON,
+@DesignerComponent(version = CanvasAddons.VERSION,
     description = "",
     category = ComponentCategory.EXTENSION,
     nonVisible = true)

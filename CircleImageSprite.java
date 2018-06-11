@@ -11,7 +11,7 @@ import com.google.appinventor.components.runtime.ComponentContainer;
 import com.google.appinventor.components.runtime.ImageSprite;
 import com.google.appinventor.components.runtime.Sprite;
 
-@DesignerComponent(version = CanvasAddons.VERISON,
+@DesignerComponent(version = CanvasAddons.VERSION,
     description = "",
     category = ComponentCategory.EXTENSION,
     nonVisible = true)
