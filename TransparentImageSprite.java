@@ -6,18 +6,16 @@ import com.google.appinventor.components.annotations.SimpleObject;
 import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.common.ComponentCategory;
 import com.google.appinventor.components.common.PropertyTypeConstants;
-import com.google.appinventor.components.common.YaVersion;
 import com.google.appinventor.components.runtime.ComponentContainer;
 import com.google.appinventor.components.runtime.ImageSprite;
 import com.google.appinventor.components.runtime.Sprite;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.util.Log;
 import cn.colintree.aix.CanvasAddons.util.ColorUtil;
 import cn.colintree.aix.CanvasAddons.util.ReflectUtil;
 
-@DesignerComponent(version = YaVersion.IMAGESPRITE_COMPONENT_VERSION,
+@DesignerComponent(version = CanvasAddons.VERISON,
     description = "",
     category = ComponentCategory.EXTENSION,
     nonVisible = true)
