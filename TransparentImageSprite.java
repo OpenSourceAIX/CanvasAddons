@@ -70,14 +70,16 @@ public final class TransparentImageSprite extends AbstractImageSprite {
                 if (!super.containsPoint(canvasX, canvasY)) {
                     return false;
                 }
-                double componentX = canvasX - xLeft + 1;
-                double componentY = canvasY - yTop + 1;
+                double componentX = canvasX - xLeft;
+                double componentY = canvasY - yTop;
                 BitmapDrawable bd = (BitmapDrawable) ReflectUtil.getField(ImageSprite.class, "drawable", sprite);
                 Bitmap b = bd.getBitmap();
                 int bitmapX = (int)(componentX * b.getWidth() / Width());
                 int bitmapY = (int)(componentY * b.getHeight() / Height());
 
-                int pixel = b.getPixel(bitmapX - 1, bitmapY - 1);
+                int pixel = b.getPixel(
+                    Math.max(0, Math.min(b.getWidth()-1, bitmapX)),
+                    Math.max(0, Math.min(b.getHeight()-1, bitmapY)));
                 int t = ColorUtil.tolerance(pixel, ignoreColor);
                 return t > tolerance;
             }
