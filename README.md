@@ -19,4 +19,4 @@ Plans:
 
 ## Don't know how to use? See [Wiki](https://github.com/OpenSourceAIX/CanvasAddons/wiki)
 
-## Report bug / Wanna suggest? Draft an [Issue](https://github.com/OpenSourceAIX/CanvasAddons/issue)
+## Report bug / Wanna suggest? Draft an [Issue](https://github.com/OpenSourceAIX/CanvasAddons/issues)
