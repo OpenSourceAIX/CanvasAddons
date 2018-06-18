@@ -59,4 +59,12 @@ public abstract class AbstractSprite<T extends Sprite> extends AndroidNonvisible
      */
     protected abstract void inheritProperties(Sprite sprite);
 
+    /**
+     * Return the sprite that is used in the component
+     */
+    @SimpleProperty
+    public Sprite Sprite() {
+        return sprite;
+    }
+
 }
