@@ -2,6 +2,7 @@ package cn.colintree.aix.CanvasAddons;
 
 import com.google.appinventor.components.annotations.DesignerComponent;
 import com.google.appinventor.components.annotations.DesignerProperty;
+import com.google.appinventor.components.annotations.SimpleEvent;
 import com.google.appinventor.components.annotations.SimpleObject;
 import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.common.ComponentCategory;
@@ -83,7 +84,39 @@ public final class TransparentImageSprite extends AbstractImageSprite {
                 int t = ColorUtil.tolerance(pixel, ignoreColor);
                 return t > tolerance;
             }
+
+            @Override
+            protected void postEvent(final Sprite sprite, final String eventName, final Object... args) {
+                if (eventName.equals("CollidedWith")) {
+                } else if (eventName.equals("Dragged")) {
+                    //
+                } else if (eventName.equals("EdgeReached")) {
+                    //
+                } else if (eventName.equals("NoLongerCollidingWith")) {
+                    //
+                } else if (eventName.equals("Touched")) {
+                    //
+                } else if (eventName.equals("Flung")) {
+                    //
+                } else if (eventName.equals("TouchUp")) {
+                    //
+                } else if (eventName.equals("TouchDown")) {
+                    // impossible
+                    // TransparentImageSprite.this.TouchDown(new Float(args[0].toString()), new Float(args[1].toString()));
+                }
+            }
+
+            @Override
+            public void TouchDown(float x, float y) {
+                TransparentImageSprite.this.TouchDown(x, y);
+            }
         };
+    }
+
+    @Override
+    @SimpleEvent
+    public void TouchDown(float x, float y) {
+        postEvent("TouchDown", x, y);
     }
 
     @DesignerProperty(

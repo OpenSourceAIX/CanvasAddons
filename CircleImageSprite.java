@@ -60,6 +60,11 @@ public final class CircleImageSprite extends AbstractImageSprite {
         };
     }
 
+    @Override
+    public void TouchDown(float x, float y) {
+        postEvent("TouchDown", x, y);
+    }
+
 
     @DesignerProperty(
         editorType = PropertyTypeConstants.PROPERTY_TYPE_ASSET,

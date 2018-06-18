@@ -14,6 +14,8 @@ public abstract class AbstractImageSprite extends AbstractSprite<ImageSprite> {
         super(container);
     }
 
+    public abstract void TouchDown(float x, float y);
+
     //@DesignerProperty(
     //    editorType = PropertyTypeConstants.PROPERTY_TYPE_BOOLEAN,
     //    defaultValue = "True")
