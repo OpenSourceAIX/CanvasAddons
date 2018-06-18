@@ -42,7 +42,6 @@ public abstract class AbstractSprite<T extends Sprite> extends AndroidNonvisible
 
         if (sprite == null) {
             createSprite();
-            ReflectUtil.invokeMethod(canvas, "addSprite", new Class<?>[] {Sprite.class}, new Object[] {sprite});
         }
 
         inheritProperties(placeHolder);
