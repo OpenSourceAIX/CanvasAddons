@@ -6,6 +6,7 @@ import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.common.PropertyTypeConstants;
 import com.google.appinventor.components.runtime.ComponentContainer;
 import com.google.appinventor.components.runtime.ImageSprite;
+import com.google.appinventor.components.runtime.Sprite;
 
 @SimpleObject(external = true)
 public abstract class AbstractImageSprite extends AbstractSprite<ImageSprite> {
@@ -14,7 +15,15 @@ public abstract class AbstractImageSprite extends AbstractSprite<ImageSprite> {
         super(container);
     }
 
+    // abstract methods for Events
+    public abstract void CollidedWith(Sprite other);
+    public abstract void Dragged(float startX, float startY, float prevX, float prevY, float currentX, float currentY);
+    public abstract void EdgeReached(int edge);
+    public abstract void NoLongerCollidingWith(Sprite other);
+    public abstract void Touched(float x, float y);
+    public abstract void Flung(float x, float y, float speed, float heading, float xvel, float yvel);
     public abstract void TouchDown(float x, float y);
+    public abstract void TouchUp(float x, float y);
 
     //@DesignerProperty(
     //    editorType = PropertyTypeConstants.PROPERTY_TYPE_BOOLEAN,
