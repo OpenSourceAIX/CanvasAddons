@@ -106,9 +106,8 @@ public final class TransparentImageSprite extends AbstractImageSprite {
     public void IgnoreTolerance(int tolerance) {
         this.tolerance = tolerance;
     }
-
     @SimpleProperty
-    public int Tolerance() {
+    public int IgnoreTolerance() {
         return tolerance;
     }
 
