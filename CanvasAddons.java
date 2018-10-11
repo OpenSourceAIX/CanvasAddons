@@ -46,11 +46,14 @@ public class CanvasAddons extends AndroidNonvisibleComponent {
     @SimpleProperty(
         category = PropertyCategory.BEHAVIOR)
     public void Canvas(Canvas canvas) {
-        if (!BindedCanvas()) {
-            this.canvas = canvas;
-            view = canvas.getView();
-            paint = (Paint) ReflectUtil.getField(canvas, "paint");
-        }
+        this.canvas = canvas;
+        view = canvas.getView();
+        paint = (Paint) ReflectUtil.getField(canvas, "paint");
+    }
+
+    @SimpleProperty
+    public Canvas Canvas() {
+        return canvas;
     }
 
     private android.graphics.Canvas getCanvas() {
