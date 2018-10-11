@@ -17,6 +17,7 @@ import cn.colintree.aix.CanvasAddons.util.ColorUtil;
 import cn.colintree.aix.CanvasAddons.util.ReflectUtil;
 
 @DesignerComponent(version = CanvasAddons.VERSION,
+    iconName = "aiwebres/icon-TransparentImageSprite.png",
     description = "",
     category = ComponentCategory.EXTENSION,
     nonVisible = true)

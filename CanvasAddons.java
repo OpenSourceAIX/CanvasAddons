@@ -22,7 +22,7 @@ import cn.colintree.aix.CanvasAddons.util.ReflectUtil;
 
 @DesignerComponent(
     category = ComponentCategory.EXTENSION,
-    iconName = "aiwebres/icon.png",
+    iconName = "aiwebres/icon-CanvasAddons.png",
     version = CanvasAddons.VERSION,
     nonVisible = true)
 @SimpleObject(external = true)
