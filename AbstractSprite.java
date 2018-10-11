@@ -46,6 +46,7 @@ public abstract class AbstractSprite<T extends Sprite> extends AndroidNonvisible
 
         if (sprite == null) {
             createSprite();
+            sprite.Initialize();
         }
 
         inheritProperties(placeHolder);
