@@ -2,6 +2,7 @@ package cn.colintree.aix.CanvasAddons;
 
 import com.google.appinventor.components.annotations.DesignerComponent;
 import com.google.appinventor.components.annotations.DesignerProperty;
+import com.google.appinventor.components.annotations.SimpleEvent;
 import com.google.appinventor.components.annotations.SimpleObject;
 import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.common.ComponentCategory;
@@ -83,7 +84,80 @@ public final class TransparentImageSprite extends AbstractImageSprite {
                 int t = ColorUtil.tolerance(pixel, ignoreColor);
                 return t > tolerance;
             }
+
+            @Override
+            protected void postEvent(final Sprite sprite, final String eventName, final Object... args) {
+                if (eventName.equals("CollidedWith")) {
+                    TransparentImageSprite.this.CollidedWith((Sprite)args[0]);
+                } else if (eventName.equals("EdgeReached")) {
+                    TransparentImageSprite.this.EdgeReached((Integer)args[0]);
+                } else if (eventName.equals("NoLongerCollidingWith")) {
+                    TransparentImageSprite.this.NoLongerCollidingWith((Sprite)args[0]);
+                }
+            }
+
+            @Override
+            public void Dragged(float startX, float startY, float prevX, float prevY, float currentX, float currentY) {
+                TransparentImageSprite.this.Dragged(startX, startY, prevX, prevY, currentX, currentY);
+            }
+            @Override
+            public void Touched(float x, float y) {
+                TransparentImageSprite.this.Touched(x, y);
+            }
+            @Override
+            public void Flung(float x, float y, float speed, float heading, float xvel, float yvel) {
+                TransparentImageSprite.this.Flung(x, y, speed, heading, xvel, yvel);
+            }
+            @Override
+            public void TouchDown(float x, float y) {
+                TransparentImageSprite.this.TouchDown(x, y);
+            }
+            @Override
+            public void TouchUp(float x, float y) {
+                TransparentImageSprite.this.TouchUp(x, y);
+            }
         };
+    }
+
+    @Override
+    @SimpleEvent
+    public void CollidedWith(Sprite other) {
+        postEvent("CollidedWith", other);
+    }
+    @Override
+    @SimpleEvent
+    public void Dragged(float startX, float startY, float prevX, float prevY, float currentX, float currentY) {
+        postEvent("Dragged", startX, startY, prevX, prevY, currentX, currentY);
+    }
+    @Override
+    @SimpleEvent
+    public void EdgeReached(int edge) {
+        postEvent("EdgeReached", edge);
+    }
+    @Override
+    @SimpleEvent
+    public void NoLongerCollidingWith(Sprite other) {
+        postEvent("NoLongerCollidingWith", other);
+    }
+    @Override
+    @SimpleEvent
+    public void Touched(float x, float y) {
+        postEvent("Touched", x, y);
+    }
+    @Override
+    @SimpleEvent
+    public void Flung(float x, float y, float speed, float heading, float xvel, float yvel) {
+        postEvent("Flung", x, y, speed, heading, xvel, yvel);
+    }
+    @Override
+    @SimpleEvent
+    public void TouchDown(float x, float y) {
+        postEvent("TouchDown", x, y);
+    }
+    @Override
+    @SimpleEvent
+    public void TouchUp(float x, float y) {
+        postEvent("TouchUp", x, y);
     }
 
     @DesignerProperty(

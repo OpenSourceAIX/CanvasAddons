@@ -8,8 +8,10 @@ import com.google.appinventor.components.common.PropertyTypeConstants;
 import com.google.appinventor.components.runtime.AndroidNonvisibleComponent;
 import com.google.appinventor.components.runtime.Canvas;
 import com.google.appinventor.components.runtime.ComponentContainer;
+import com.google.appinventor.components.runtime.EventDispatcher;
 import com.google.appinventor.components.runtime.Sprite;
 
+import android.os.Handler;
 import cn.colintree.aix.CanvasAddons.util.ReflectUtil;
 
 @SimpleObject(external = true)
@@ -19,10 +21,12 @@ public abstract class AbstractSprite<T extends Sprite> extends AndroidNonvisible
 
     protected T sprite;
     protected Canvas canvas;
+    protected Handler androidUIHandler;
 
     public AbstractSprite(ComponentContainer container) {
         super(container.$form());
         this.container = container;
+        androidUIHandler = new Handler();
     }
     
     /**
@@ -42,7 +46,7 @@ public abstract class AbstractSprite<T extends Sprite> extends AndroidNonvisible
 
         if (sprite == null) {
             createSprite();
-            ReflectUtil.invokeMethod(canvas, "addSprite", new Class<?>[] {Sprite.class}, new Object[] {sprite});
+            sprite.Initialize();
         }
 
         inheritProperties(placeHolder);
@@ -59,5 +63,21 @@ public abstract class AbstractSprite<T extends Sprite> extends AndroidNonvisible
      * Handle property inherit
      */
     protected abstract void inheritProperties(Sprite sprite);
+
+    /**
+     * Return the sprite that is used in the component
+     */
+    @SimpleProperty
+    public Sprite Sprite() {
+        return sprite;
+    }
+
+    protected void postEvent(final String eventName, final Object... args) {
+        androidUIHandler.post(new Runnable() {
+            public void run() {
+                EventDispatcher.dispatchEvent(AbstractSprite.this, eventName, args);
+            }
+        });
+    }
 
 }
