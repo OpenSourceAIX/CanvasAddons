@@ -33,7 +33,6 @@ public class CanvasAddons extends AndroidNonvisibleComponent {
     private final Form form;
     private Canvas canvas;
     private View view;
-    private android.graphics.Canvas androidCanvas;
     private Paint paint;
     
     public CanvasAddons(ComponentContainer container) {
@@ -47,12 +46,20 @@ public class CanvasAddons extends AndroidNonvisibleComponent {
     @SimpleProperty(
         category = PropertyCategory.BEHAVIOR)
     public void Canvas(Canvas canvas) {
-        if (this.canvas == null) {
+        if (!BindedCanvas()) {
             this.canvas = canvas;
             view = canvas.getView();
-            androidCanvas = (android.graphics.Canvas) ReflectUtil.getField(view, "canvas");
             paint = (Paint) ReflectUtil.getField(canvas, "paint");
         }
+    }
+
+    private android.graphics.Canvas getCanvas() {
+        return (android.graphics.Canvas) ReflectUtil.getField(view, "canvas");
+    }
+
+    @SimpleProperty
+    public boolean BindedCanvas() {
+        return canvas != null;
     }
 
     /**
@@ -64,7 +71,7 @@ public class CanvasAddons extends AndroidNonvisibleComponent {
      */
     @SimpleFunction
     public void DrawShape(YailList pointList, boolean fill) {
-        if (androidCanvas==null) {
+        if (getCanvas() == null) {
             return;
         }
         Path path;
@@ -79,7 +86,7 @@ public class CanvasAddons extends AndroidNonvisibleComponent {
         path.close();
         Paint p = new Paint(paint);
         p.setStyle(fill ? Paint.Style.FILL : Paint.Style.STROKE);
-        androidCanvas.drawPath(path, p);
+        getCanvas().drawPath(path, p);
         view.invalidate();
     }
 
@@ -145,13 +152,13 @@ public class CanvasAddons extends AndroidNonvisibleComponent {
     @SimpleFunction
     public void DrawArc(int left, int top, int right, int bottom, 
     float startAngle, float sweepAngle, boolean useCenter, boolean fill) {
-        if (androidCanvas==null) {
+        if (getCanvas() == null) {
             return;
         }
         float scalingFactor = form.deviceDensity();
         Paint p = new Paint(paint);
         p.setStyle(fill ? Paint.Style.FILL : Paint.Style.STROKE);
-        androidCanvas.drawArc(
+        getCanvas().drawArc(
             scalingFactor * left, scalingFactor * top,
             scalingFactor * right, scalingFactor * bottom,
             startAngle, sweepAngle, useCenter, p);
