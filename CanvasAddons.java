@@ -28,7 +28,7 @@ import cn.colintree.aix.CanvasAddons.util.ReflectUtil;
 @SimpleObject(external = true)
 public class CanvasAddons extends AndroidNonvisibleComponent {
 
-    public static final int VERSION = 1;
+    public static final int VERSION = 3;
 
     private final Form form;
     private Canvas canvas;
