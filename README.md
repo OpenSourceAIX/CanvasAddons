@@ -4,14 +4,12 @@
 
 Currently we got:
 
-* **CircleImageSprite** - A image sprite that defined by circle collision detect
-* **TransparentImageSprite** - Color-based collision detect
+* CanvasAddons - Some advanced drawing methods
+* CircleImageSprite - A image sprite that defined by circle collision detect
+* TransparentImageSprite - Color-based collision detect
 
 Plans:
 
-* CanvasAddons
-  * DrawArc (should be deprecated after [mit-cml/appinventor-sources#1176](https://github.com/mit-cml/appinventor-sources/pull/1176) is merged)
-  * DrawShape (same with DrawArc)
 * Analog joystick
 * Multiple touch detect
 

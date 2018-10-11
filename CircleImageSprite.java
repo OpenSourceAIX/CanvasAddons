@@ -13,6 +13,7 @@ import com.google.appinventor.components.runtime.ImageSprite;
 import com.google.appinventor.components.runtime.Sprite;
 
 @DesignerComponent(version = CanvasAddons.VERSION,
+    iconName = "aiwebres/icon-CircleImageSprite.png",
     description = "",
     category = ComponentCategory.EXTENSION,
     nonVisible = true)
