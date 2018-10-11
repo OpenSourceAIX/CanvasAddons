@@ -2,6 +2,7 @@ package cn.colintree.aix.CanvasAddons;
 
 import com.google.appinventor.components.annotations.DesignerProperty;
 import com.google.appinventor.components.annotations.PropertyCategory;
+import com.google.appinventor.components.annotations.SimpleFunction;
 import com.google.appinventor.components.annotations.SimpleObject;
 import com.google.appinventor.components.annotations.SimpleProperty;
 import com.google.appinventor.components.common.PropertyTypeConstants;
@@ -78,6 +79,44 @@ public abstract class AbstractSprite<T extends Sprite> extends AndroidNonvisible
                 EventDispatcher.dispatchEvent(AbstractSprite.this, eventName, args);
             }
         });
+    }
+
+    @SimpleFunction(description = "Makes this sprite bounce, as if off a wall.  " +
+        "For normal bouncing, the edge argument should be the one returned by EdgeReached.")
+    public void Bounce (int edge) {
+        sprite.Bounce(edge);
+    }
+
+    @SimpleFunction
+    public boolean CollidingWith(Sprite other) {
+        return sprite.CollidingWith(other);
+    }
+
+    @SimpleFunction
+    public void MoveIntoBounds() {
+        sprite.MoveIntoBounds();
+    }
+    
+    @SimpleFunction(
+        description = "Moves the sprite so that its left top corner is at " +
+        "the specfied x and y coordinates.")
+    public void MoveTo(double x, double y) {
+        sprite.MoveTo(x, y);
+    }
+
+    @SimpleFunction(
+        description = "Turns the sprite to point towards the point " +
+        "with coordinates as (x, y).")
+    public void PointInDirection(double x, double y) {
+        sprite.PointInDirection(x, y);
+    }
+
+    @SimpleFunction(
+        description = "Turns the sprite to point towards a designated " +
+        "target sprite. The new heading will be parallel to the line joining " +
+        "the centerpoints of the two sprites.")
+    public void PointTowards(Sprite target) {
+        sprite.PointTowards(target);
     }
 
 }
